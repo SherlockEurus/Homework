@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5</title>
+</head>
+<body>
+	<script src="../jquery.js"></script>
+	<ul>
+		<li>
+		<h1>apple</h1>
+		<h2>orange</h2>
+		<h3>bananan</h3>
+	    </li>
+	</ul>
+	<button onclick="add()">追加</button>
+	<script>
+		let a='苹果'
+		let b='橘子'
+		let c='香蕉'
+		let str =` 
+            <li>
+              <h1>${a}</h1>
+              <h2>${b}</h2>
+              <h3>${c}</h3>
+            </li>
+		`
+		function add(){
+			$('ul').first().append(str)
+		}
+	</script>
+</body>
+</html>
