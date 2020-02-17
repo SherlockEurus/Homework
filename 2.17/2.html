@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2</title>
+</head>
+<body>
+	<h2 id="title">111</h2>
+	<!-- 箭头函数 -->
+	<script>
+		let demo = (str) => {
+			return str;
+		}
+		console.log(demo('ppp'));
+
+
+
+		let  demo1=str=>str;
+		console.log(demo1('hellow'));
+
+		let demo2=(a,b)=>a+b;
+		console.log(demo2(10,20))
+
+
+
+
+		let title=document.getElementById('title')
+		title.onclick=function(){
+			console.log(this)
+
+			setTimeout(()=>{
+				console.log('你得定时器')
+				console.log(this)
+				this.innerHTML='<span style="color:green">箭头</span>'
+			},2000
+                       
+				)
+		}
+	</script>
+</body>
+</html>
