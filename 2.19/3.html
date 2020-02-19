@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3</title>
+</head>
+<body>
+	<script>
+		new Promise((resolve, reject)=>{
+           
+                $.ajax({
+                    type: 'get',
+                    url: '',
+                    success: function(data){
+                        console.log(data);
+                    }
+                })
+           
+       }.then(res=>{
+       	console.log(res)
+       }).catch(err=>{
+       	console.log(err)
+       })
+	</script>
+</body>
+</html>

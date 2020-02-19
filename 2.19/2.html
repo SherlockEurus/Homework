@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2</title>
+</head>
+<body>
+	<script>
+		function demo(){
+			return new Promise((resolve,reject)=>{
+				setTimeout(()=>{
+					resolve()
+				},1000)
+			})
+		}
+
+
+		demo()
+			.then(()=>{
+				console.log(10);
+				return demo()
+			})
+			.then(()=>{
+				console.log(20);
+				return demo()
+			})
+			.then(()=>{
+				console.log(30);
+				return demo()
+			})
+			.then(()=>{
+				console.log(40);
+				return demo()
+			})
+			.then(()=>{
+				console.log(50);
+				return demo()
+			})
+	</script>
+</body>
+</html>
