@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3</title>
+</head>
+<body>
+	<div id="app">
+		<h1>{{title}}</h1>
+		<h1 v-text="title"></h1>
+		<p style="color: yellow">{{str}}</p>
+		<p>{{str}}</p>
+		<p v-text="str"></p>
+	</div>
+	<script src="../lib/vue-2.6.10.js"></script>
+	<script>
+		const vm = new Vue({
+			el:"#app",
+			data:{
+				title:'v-text 和 {{  }} 区别',
+				str:'<span style="color:red">wo kan bu jian le le le</span>'
+			}
+		})	
+	</script>
+</body>
+</html>

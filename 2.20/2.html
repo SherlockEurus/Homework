@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2</title>
+</head>
+<script src="../lib/vue-2.6.10.js"></script>
+
+<body>
+	<div id="app">
+		<h1>{{title}}</h1>
+		<p>{{str}} {{username}}</p>
+		<p v-text="str +' '+ username"></p>	
+		<p>{{desc}} {{高恺}}</p>
+		<p v-text="desc + '高恺'"></p>
+	</div>
+
+	<script>
+		const vm =new Vue({
+			el:'#app',
+			data:{
+				title:'第二百万个vue',
+				username:'admin'
+				str:'dwfdwef',
+				desc:'呵呵呵呵呵呵呵'
+			}
+		})
+	</script>
+	
+</body>
+</html>
