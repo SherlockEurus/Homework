@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2</title>
+	<style>
+		.fang{
+			width: 400px;
+		}
+		.yuan{
+			border-radius: 50%;
+		}
+	</style>
+</head>
+<script src="../lib/vue-2.6.10.js"></script>
+<body>
+<div id="app">
+		<h1>{{ title }}</h1>
+		
+		<img :src="src" :width="w" :class="s">
+		
+		<br><br>
+		图片：   图片1 <input type="radio" v-model="src"  value="../2.20/imgs/1.jpg">
+				图片2 <input type="radio" v-model="src"  value="../2.20/imgs/2.jpg">
+		
+		<br><br>
+		风格1：  矩形<input type="radio" v-model="s"  value="fang"> 
+		 		 圆形<input type="radio" v-model="s"   value="yuan"> 
+
+	</div>
+	<script type="text/javascript">
+		const vm = 	new Vue({
+			el:'#app',
+			data:{
+				title:'v-model ',
+				w:300,
+				src:'../2.20/imgs/1.jpg',
+				s:'fang'
+			}
+		})
+
+
+	</script>
+</body>
+</html>

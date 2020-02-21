@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4</title>
+	<style>
+		li{
+			width: 400px;
+			height: 30px;
+			border:1px solid yellow;
+			outline: none;
+			line-height: 40px;
+		}
+	</style>
+</head>
+<script src="../lib/vue-2.6.10.js"></script>
+<body>
+	
+	<div id="app">
+		<h1>{{title}}</h1>
+		<ul>
+		<li v-for="(item,key) in books" :key="item.id">
+					<input type="checkbox" name="">
+					id:{{ item.id }}   			---->
+					作者:{{ item.auth }} 		---->
+					名称:{{ item.bookname }} 	
+			</li>
+			<button v-on:click="add()">点击添加选项</button>
+		</ul>
+	</div>
+	<script>
+		const vm = 	new Vue({
+			el:'#app',
+			data:{
+				title:'v-for 循环控制',
+				lists:['css3','html5','ajax','jquery'],
+				objects:{uname:'刘德华',age:52,say:'中国人'},
+				books:[
+					{id:1,auth:'罗贯中','bookname':'《三国演义》'},
+					{id:2,auth:'吴承恩','bookname':'《西游记》'},
+					{id:3,auth:'曹雪芹','bookname':'《红楼梦》'},
+					{id:4,auth:'施耐庵','bookname':'《水浒传》'}
+				]
+			},
+			methods:{
+				add:function(){
+					let book = {id:5,auth:'gaokai','bookname':'xixi'}
+					this.books.unshift(book); 
+				}
+			}
+		})
+	</script>
+</body>
+</html>
