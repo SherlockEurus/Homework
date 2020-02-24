@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<style>
+		.box{
+			width: 200px;
+			height: 200px;
+			background: orange;
+		}
+
+	</style>
+	<script src="../lib/vue-2.6.10.js"></script>
+	<div id="app">
+		{{ title }}
+		<button v-on:click="isShow = !isShow">切换显示隐藏效果</button>
+		<div class="box" v-if="isShow"></div>
+	
+
+	</div>
+	<script type="text/javascript">
+		const vm = new Vue({
+			el:"#app",
+			data:{
+				title:'v-if 流程判断',
+				isShow:true
+			}
+		})
+
+
+	</script>
+</body>
+</html>

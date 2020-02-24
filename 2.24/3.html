@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script src="../lib/vue-2.6.10.js"></script>
+<body>
+	<div id="app">
+		<h1>{{title}}</h1>
+		<template v-if="isLogin">
+			<button>登陆</button>
+			<p>使用正确的id登陆</p>
+		</template>
+	</div>
+<script>
+	const vm =new Vue({
+		el:"#app",
+		data:{
+			title:'v-if',
+			isLogin:true,
+			
+		}
+	})
+</script>
+	
+</body>
+</html>

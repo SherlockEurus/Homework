@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>1</title>
+</head>
+<script src="../lib/vue-2.6.10.js"></script>
+<body>
+	<div id="app">
+		<h1>{{ title }}</h1>
+		
+		数值1： <input type="text" name="" v-model="num1">
+		<br><br>
+		<input type="radio"  name="s" v-model="s" value="+">+</input>
+		<input type="radio"  name="s" v-model="s" value="-">-</input>
+		<input type="radio"  name="s" v-model="s" value="*">*</input>
+		<input type="radio"  name="s" v-model="s" value="/">/</input>
+		<br><br>
+		数值2： <input type="text" name="" v-model="num2">
+		<br><br>
+		<button v-on:click="sum()">=</button>
+		<br><br>
+		值： <input type="text" name="" v-model="str">
+
+	</div>
+	<script>
+		const jsq = new Vue({
+			el:"#app",
+			data:{
+				title:'实现计算器',
+				num1:'',
+				num2:'',
+				s:'',
+				str:''
+		},methods:{
+			sum(){
+				let n1 = this.num1;
+				let n2 = this.num2;
+				let s = this.s;
+				this.str=n1+s+n2+'='+eval(n1+n2+s)
+			}
+		})
+	</script>
+
+	
+</body>
+</html>

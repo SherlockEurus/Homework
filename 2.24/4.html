@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script src="../lib/vue-2.6.10.js"></script>
+<body>
+	<div id="app">
+		<p v-html="str"></p>
+		<button v-on:clock="resStr(1)">点击翻转字符串</button>
+	    <button @click="resStr(2)">点击转换成大写</button>
+	    
+	</div>
+	<script>
+		const vm = new Vue({
+			el:"#app",
+			data:{
+				title:'事件',
+				str:'hello'
+			},
+			methods:{
+				reStr(param){
+					if(param == 1){
+						this.str=this.str.split('').reverse().join('');
+					}else{
+						this.str=this.str.toUpperCase();
+					}
+				}
+			}
+
+		})
+
+	</script>
+</body>
+</html>
