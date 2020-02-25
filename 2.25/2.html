@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	.box1{
+		width: 300px;
+		height: 300px;
+		background: red;
+	}
+	.box2{
+		width: 200px;
+		height: 200px;
+		background: yellow;
+	}
+	.box3{
+		width: 100px;
+		height: 100px;
+		background: pink;
+	}
+	#app div{
+		float: left;
+		margin-right: 10px;
+		border-radius: 50%;
+	}
+</style>
+<script src="../lib/vue-2.6.10.js"></script>
+<body>
+	<div id="app">
+		<div class="box1" @click.stop="info('div1')">
+			<div class="box2" @click.stop="info('div2')">
+				<div class="box3" @click.stop="info('div3')"></div>
+			</div>
+		</div>
+	</div>
+
+	
+</body>
+</html>

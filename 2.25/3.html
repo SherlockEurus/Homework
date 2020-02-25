@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	
+</head>
+<script src="../lib/vue-2.6.10.js"></script>
+<body>
+	<div id="app">
+		<h3 v-html="title"></h3>
+		<button @click.once="info()">投票</button>
+		<form action="https://www.baidu.com/" method="get" @submit.prevent="commit()">
+			用户： <input type="text" name="">
+			<input type="submit" name="">
+		</form>
+
+	</div>
+
+	<script type="text/javascript">
+		const vm = new Vue({
+			el:'#app',
+			data:{
+				title:'vue事件中的修饰符',
+			},
+			methods:{
+				info(){
+					alert('投票成功');
+				},
+				commit(){
+					alert('ok')
+				}
+			}
+		});
+
+	</script>
+</body>
+</html>

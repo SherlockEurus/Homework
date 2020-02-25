@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>1</title>
+</head>
+<script src="../lib/vue-2.6.10.js"></script>
+<body>
+	<div id="app">
+		<h1 v-html="tempStr"></h1>
+	</div>
+	<script>
+		const vm = new Vue({
+			el:'#app',
+			data:{
+				title:'王老先生有只猪咿呀咿呀哟',
+				tempStr:''
+			},
+			methods:{
+				run(){
+					let i = 0;
+					setInterval(()=>{		
+						let arr = this.title.split('');
+						let str = '<span style="color:red;font-size:25px;">'+arr[i]+'</span>';
+						arr[i] = str;					
+						this.tempStr = arr.join('');
+
+						i++;
+						if(i == arr.length){
+							i = 0;
+						}
+
+					},1000);
+					
+				}
+			}
+		});
+		vm.run();
+	</script>
+</body>
+</html>
