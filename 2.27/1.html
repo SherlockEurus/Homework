@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script src="../lib/vue-2.6.10.js"></script>
+<body>
+	
+	<div id="app">
+		<h1>{{ title }}</h1>
+
+		<input type="text" name="" v-model="str">
+		
+		<p>{{ str | upper }}</p>
+
+		<p>{{ name | firstUpper }}</p>
+
+	</div>
+	<script>
+		 Vue.filter('upper',function(a){
+		 	return a.toUpperCase();
+		 });
+
+		const vm = new Vue({
+			el:"#app",
+			data:{
+				title:'大写',
+				str:'',
+				name:'yidaiyilu'
+			},
+			methods:{
+
+			},
+			filters:{
+				firstUpper:function(a){
+					return a.charAt(0).toUpperCase()+a.slice(1);
+				}
+			}
+		})
+	</script>
+</body>
+</html>

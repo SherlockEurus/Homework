@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script src="../lib/vue-2.6.10.js"></script>
+<body>
+	<div id="app">
+		<h1>{{ title }}</h1>
+		<p>{{ money | moneyfilter('￥') }}</p>
+	</div>
+	<script>
+		
+		Vue.filter('moneyfilter',function(vals, str='$', param=2){
+			// console.log(str)
+			return str+(parseInt(vals).toFixed(param));
+		});
+
+		const vm = new Vue({
+			el:"#app",
+			data:{
+				title:'过滤器',
+				money:'1000',
+			},
+			
+		})
+	</script>
+</body>
+</html>
