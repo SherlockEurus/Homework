@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script src="../jquery.js"></script>
+<script src="../lib/vue-2.6.10.js"></script>
+<body>
+	
+	<div id="app">
+		<h1>{{ title }}</h1>
+		<button @click="gets()">发送ajax</button>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				title:'交互'
+			},
+			methods:{
+				gets(){
+					let url = '';
+					$.get(url,{a:1,b:2},res=>{
+						console.log(res);
+					})
+				}
+			}
+		})
+
+
+	</script>
+
+</body>
+</html>

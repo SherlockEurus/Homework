@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<script type="text/javascript" src="../lib/vue-2.6.10.js"></script>
+<script type="text/javascript" src="../lib/vue-resource.js"></script>
+
+<body>
+	
+	<div id="app">
+		<h1>{{ title }}</h1>
+		<button @click="posts()">post方法</button>
+	</div>
+	
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				title:'交互',
+				url1:'', ,
+			},
+			methods:{
+				posts(){
+					this.$http.post(this.url1,{a:100,b:200},{emulateJSON:true}).then(res=>{
+						console.log(res.data);
+					},err=>{
+						console.log('false')
+					});
+
+				}
+			}
+		})
+
+
+	</script>
+
+</body>
+</html>
