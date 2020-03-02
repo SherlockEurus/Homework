@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script src="../lib/vue-2.6.10.js"></script>
+<body>
+	<div id="app">
+		<h3>{{ title }}</h3>
+
+		<input type="text" name="" v-focus>
+	</div>
+
+	<script type="text/javascript">
+		Vue.directive('focus',{
+			bind:function(el){
+				el.style.border = '1px solid orange'
+			},
+			inserted:function(el){
+				el.style.width = '200px'
+				el.focus();
+			}
+		});
+
+		const vm = new Vue({
+			data:{
+				title:'自定义指令',
+			},
+			methods:{
+				
+			}
+		}).$mount('#app');
+
+
+
+
+
+
+	</script>
+</body>
+</html>

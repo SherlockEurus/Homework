@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script src="../lib/vue-2.6.10.js"></script>
+<body>
+	<div id="app">
+		<h1>{{ title }}</h1>
+		
+		<div v-color="a"> {{ title }}</div>
+
+		<p v-color="'red'">hello</p>
+
+	</div>
+
+	<script>
+		 Vue.directive('color',{
+		 	inserted:function(el,param){
+		 		console.log(el);
+		 		el.style.color = param.value;
+		 		
+		 	}
+		 })
+
+
+		const vm = new Vue({
+			data:{
+				title:' 自定义指令',
+				c:'blue'
+			},
+			methods:{
+				
+			}
+		}).$mount('#app');
+
+
+
+
+
+
+	</script>
+</body>
+</html>

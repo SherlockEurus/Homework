@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		input{
+			width: 50%;
+			height: 20px;
+			outline: none;
+			border:1px solid red;
+		}
+		
+		*{
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+		}
+		ul{
+			margin-left: 100px;
+		}
+
+		li{
+			width: 30px;
+			height: 10px;
+			text-align: center;
+			line-height: 15px;
+			color:orange;
+			float: left;
+			background: yellow;
+			font-size: 10px;
+		}
+
+		.a{
+			background: red;
+			color: black;
+		}
+	</style>
+</head>
+<script src="../lib/vue-2.6.10.js"></script>
+
+<body>
+	<div id="app">
+		<h1>{{ title }}</h1>
+		密码： <input type="text" name="" @keyup="checkUpass()" v-model="upass">
+
+		<ul>
+			<li :class="{a:isType == 1}">弱</li>
+			<li :class="{a:isType == 2}">中</li>
+			<li :class="{a:isType == 3}">强</li>
+		</ul>
+	</div>
+
+	<script>
+		const vm = new Vue({
+			data:{
+				title:'密码强度',
+				upass:'',
+				isType:0,
+			},
+			methods:{
+				checkUpass(){
+					if(this.upass.length < 6 || this.upass.length > 18 ){
+						this.isType = 0;
+						return;
+					} 
+					 
+					 
+				
+					let upassType = [];
+					let preg1 = /[a-zA-Z]+/;
+					if(preg1.test(this.upass)){
+						upassType.push('字母类型');
+					}
+
+					let preg2 = /[0-9]+/;
+					if(preg2.test(this.upass)){
+						upassType.push('数字类型');
+					}	
+
+					let preg3= /[\W_]+/;
+					if(preg3.test(this.upass)){
+						upassType.push('特殊类型');
+					}
+
+					this.isType = upassType.length;
+				}
+			}
+		}).$mount('#app');
+
+	</script>
+</body>
+</html>
