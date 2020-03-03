@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script src="../lib/vue-2.6.10.js"></script>
+<body>
+	<div id="app">
+		<h1>{{ title }}</h1>
+		<p>{{ str }}</p>
+		<p>{{ comStr }}</p>
+	</div>
+	<script type="text/javascript">
+		const vm = new Vue({
+			el:'#app',
+			data:{
+				title:'计算属性',
+				str:'hello vue'
+			},
+			computed:{
+				comStr:function(){
+					return 'memeda'
+				}
+			}
+
+		})
+
+
+	</script>
+</body>
+</html>

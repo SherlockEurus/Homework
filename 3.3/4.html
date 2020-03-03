@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.box{
+			width: 300px;
+			height: 300px;
+			background: red;
+		}
+		.fade-enter{	
+			opacity: 0;	
+		}
+		.fade-enter-active{
+			transition: all 2s ease;	
+		}
+		.fade-enter-to{
+			opacity: 1;
+		}
+		.fade-leave{
+			opacity: 1;
+		}	
+		.fade-leave-active{
+			transition: all 2s ease;
+		}
+		.fade-leave-to{
+			opacity: 0;
+		}
+
+	</style>
+</head>
+<script type="text/javascript" src="../lib/vue-2.6.10.js"></script>
+<body>
+	<div id="app">
+		<h1>{{ title }}</h1>
+		<button @click="flag = !flag">显示隐藏</button>
+		<transition name="fade">
+			<div class="box" v-show="flag"></div>
+		</transition>
+	</div>
+	<script type="text/javascript">
+		const vm = new Vue({
+			el:'#app',
+			data:{
+				title:'动画',
+				flag:true
+			}
+
+		})
+
+	</script>
+</body>
+</html>
