@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			list-style: none;
+		}
+		li{
+			width: 200px;
+			height: 20px;
+			border:1px solid red;
+			line-height: 20px;
+			text-align: center;
+			margin-top: 10px;
+		}
+		
+	</style>
+	<link href="https://cdn.bootcss.com/animate.css/3.7.2/animate.css" rel="stylesheet">
+</head>
+<script src="../lib/vue-2.6.10.js"></script>
+<body>
+	<div id="app">
+		<h1>{{ title }}</h1>
+		<transition-group enter-active-class="animated bounceInUp" leave-active-class="" tag="ul">	
+			<li v-for="(item,index) in lists" :key="item+index">{{ item }}</li>
+		</transition-group>
+	
+		<input type="text" name="" v-model="uname">
+
+		<button @click="addList()">点击添加</button>		
+	</div>
+	<script type="text/javascript">
+		const vm = new Vue({
+			el:'#app',
+			data:{
+				title:'添加动画',
+				lists:['高恺','芦苇','卢本伟'],
+				uname:''
+			},
+			methods:{
+				addList(){
+					this.lists.push(this.uname)
+				}
+			}
+			
+
+		})
+
+	</script>
+	
+</body>
+</html>
