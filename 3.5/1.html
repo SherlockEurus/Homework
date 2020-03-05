@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<script src="../lib/vue-2.6.10.js"></script>
+	<body>
+		
+		<div id="app">
+			<h1>{{ title }}</h1>
+
+			<login></login>
+
+		</div>
+		<script type="text/javascript">
+			Vue.component('login',{
+				template:`
+					<div>
+						<h3>这是一个登录页</h3>
+						用户名：<input type="text" />
+					</div>
+				`,
+			});	
+
+
+			const vm = new Vue({
+				el:"#app",
+				data:{
+					title:'组件定义',
+
+				}			
+			});
+
+		</script>
+	</body>
+</html>

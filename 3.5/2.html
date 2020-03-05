@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<script src="../lib/vue-2.6.10.js"></script>
+	<body>
+		
+		<div id="app">
+			<h1>{{ title }}</h1>	
+				
+			<cate></cate>
+		
+			<footers></footers>
+
+
+		</div>	
+			
+
+		<script type="text/javascript">
+			
+			const cate = {
+				template:`
+					<ul>
+						<li>首页</li>
+						<li>衣柜</li>
+						<li>鞋</li>
+					</ul>
+				`
+			} 	
+
+			const footers = {
+				template:`
+					<div>
+						<button>我的</button>
+						<button>商城</button>
+					</div>
+				`
+			}
+			const vm = new Vue({
+				el:"#app",
+				data:{
+					title:'组件定义',
+				},
+				methods:{},
+				filters:{},
+				components:{
+					cate,
+					footers
+				}			
+			});
+
+		</script>
+	</body>
+</html>

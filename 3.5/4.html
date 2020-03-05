@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<script src="../lib/vue-2.6.10.js"></script>
+	<body>
+		
+		<div id="app">
+			<h1>{{ title }}</h1>	
+			<my-count></my-count>
+		</div>
+		
+
+		<template id="count">
+			<div>
+				<p>{{ title }}</p>
+				<h5>数据是：{{ num }}</h5>
+				<button @click="add()">数据+1</button>
+			</div>
+		</template>
+		<script type="text/javascript">
+			Vue.component('my-count',{
+				template:'#count',
+				data(){
+					return {
+						num:1,
+						title:'子组件'
+					}
+				},
+				methods:{
+					add(){
+						this.num = this.num+1;
+					}
+				}
+
+			});
+
+			const vm = new Vue({
+				el:"#app",
+				data:{
+					title:'使用数据',
+					num:10
+				},
+				methods:{},
+				filters:{},
+			});
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<script src="../lib/vue-2.6.10.js"></script>
+	<body>
+		
+		<div id="app">
+			<h1>{{ title }}</h1>	
+
+			<Login></Login>
+
+			<banner></banner>
+		</div>
+
+		<template id="login">
+			<div>
+				<h3>登录</h3>
+				<form>
+					用户： <input type="text" name=""><br><br>
+					密码： <input type="text" name=""><br><br>
+					<input type="submit" name="">
+				</form>
+			</div>
+		</template>	
+
+
+		<template id="banner">
+			<ul>
+				<li>轮播</li>
+				<li>轮播</li>
+				<li>轮播</li>
+			</ul>
+		</template>
+		<script type="text/javascript">
+			
+			const Login = {template:'#login'}
+			Vue.component('banner',{template:'#banner'})
+
+			const vm = new Vue({
+				el:"#app",
+				data:{
+					title:'模板组件',
+				},
+				methods:{},
+				filters:{},
+				components:{
+					Login
+				}	
+
+			});
+
+		</script>
+	</body>
+</html>
