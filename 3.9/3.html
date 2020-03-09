@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script src="../lib/vue-2.6.10.js"></script>
+<script src="../lib/vue-router.js"></script>
+<body>
+	<div id="app">
+		<h1>{{ title }}</h1>
+		
+		<router-link to="/article?id=101&cateid=爱情">哈撒剋</router-link> <br><br>
+		<router-link to="/article?id=102&cateid=生活">一库</router-link>	<br><br>
+		<router-link to="/article?id=103&cateid=工作">同理剋同</router-link>	<br><br>
+
+		<router-view></router-view>
+
+	</div>
+	
+	<template id="article">
+		<div>
+			<h3>文章是： {{ $route.query.id }} ,属于的板块是： {{ $route.query.cateid }}</h3>
+		</div>
+	</template>
+	<script>
+		const article = {template:"#article"}
+		const routes = [
+			{
+				path:'/article',
+				component:article
+			}
+		];
+		const router = new VueRouter({
+			routes
+		})
+
+		const vm = new Vue({
+			router,
+			el:"#app",
+			data:{
+				title:'携带参数'
+			}
+		})
+
+	</script>
+</body>
+</html>

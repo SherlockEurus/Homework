@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script src="../lib/vue-2.6.10.js"></script>
+<script src="../lib/vue-router.js"></script>
+<body>
+	<div id="app">
+		<h1>{{ title }}</h1>
+		<router-link to="/home">首页</router-link>	
+		<router-link to="/login">登录</router-link>	
+		<router-view></router-view>
+
+	</div>
+	
+	<template id="home">
+		<div>
+			<h3>组件</h3>
+		</div>
+	</template>
+
+	<template id="login">
+		<div>
+			<h3>登录</h3>
+		</div>
+	</template>
+
+	
+
+	<script>
+		const login = {template:"#login"}
+		const home = {template:'#home'}
+		const routes = [
+			{
+				path:'/home',  
+				component:home 
+			},
+			{
+				path:'/login',
+				component:login
+			}
+		]; 
+		const router = new VueRouter({
+			routes
+		})
+		const vm = new Vue({
+			router,
+			el:'#app',
+			data:{
+				title:"路由"
+			}
+		})
+
+	</script>	
+</body>
+</html>
