@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script src="../lib/vue-2.6.10.js"></script>
+<script src="../lib/vue-router.js"></script>
+<body>
+	
+	<div id="app">
+		<h1>{{ title }}</h1>
+		
+		<router-link :to="{name:'home'}">首页</router-link>
+		<router-link :to="{name:'register'}">注册</router-link>
+
+		<router-view></router-view>
+	</div>
+
+	<template id="home">
+		<h3>home.....</h3>
+	</template>
+
+	<template id="register">
+		<div>
+			<router-link :to="{path:'/register/email'}" tag="button">手机号</router-link>
+			<router-link :to="{path:'/register/phone'}"  tag="button"> qq邮箱</router-link>
+			<router-view></router-view>
+		</div>
+	</template>
+
+	<template id="email">
+		<form>
+			手机号：<input type="text">
+		</form>
+	</template>
+
+	<template id="phone">
+		<form>
+			邮箱：<input type="text">
+		</form>
+	</template>
+
+	<script>
+		const home = {template:"#home"}
+		const register = {template:"#register"}
+		const phone = {template:"#phone"}
+		const email = {template:"#email"}
+		const routes = [
+			{
+				path:'/home',
+				component:home,
+				name:'home'
+			},
+			{
+				path:'/register',
+				component:register,
+				name:'register',
+				children:[
+					{
+						path:'email',
+						component:email
+					},
+					{
+						path:'phone',
+						component:phone
+					},
+					{
+						path:'/register',
+						redirect:'/register/email'
+					}
+				]
+			},
+			{
+				path:'/',
+				redirect:'/home'
+			}
+		];
+		const router = new VueRouter({
+			routes 
+		})
+          
+		const vm = new Vue({
+			router,
+			data:{
+				title:"路由嵌套"
+			}
+			
+		}).$mount('#app');
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script src="../lib/vue-2.6.10.js"></script>
+<script src="../lib/vue-router.js"></script>
+<body>
+	
+	<div id="app">
+		<h1>{{ title }}</h1>
+		
+		<router-link to="/article/1/峡谷">亚索</router-link> <br>
+		<router-link to="/article/2/王者">李白</router-link> <br>
+		<router-link to="/article/3/彩虹六号">杜斯妥耶夫斯基咖啡馆</router-link> <br>
+
+		<router-view></router-view>
+
+	</div>
+
+	<template id="article">
+		<div>
+			<h3>文章id： {{ $route.params.id }} 文章分类： {{ $route.params.catname }}</h3>
+		</div>
+	</template>	
+
+	<script>
+		const article = {template:"#article"}
+		const router = new VueRouter({
+			routes:[
+				{
+					path:'/article/:id/:catname',
+					component:article
+				}
+			]
+		})
+
+		const vm = new Vue({
+			router,
+			data:{
+				title:"携带参数"
+			},
+			created(){
+				console.log(this.$route);
+			}
+		}).$mount('#app');
+
+
+	</script>
+</body>
+</html>
