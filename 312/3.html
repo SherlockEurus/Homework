@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue-2.6.10.js"></script>
+    <script src="../lib/vue-router.js"></script>
+    <style>
+        .child{
+            border:1px solid orange;
+        }
+
+        #app{
+            border:1px solid skyblue;
+            width: 40%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{ title }}</h1>
+        <p>{{ parent }}</p>
+
+
+        <!-- 注意： 不能加（）  -->
+        <my-child v-on:func="parentData"></my-child>
+    </div>
+
+    <template id="child">
+        <div class="child">
+            <h3>子组件</h3>
+            <p v-html="str"></p>
+            <button @click="demo">点击传递</button>
+        </div>
+    </template>
+
+
+
+    <script>
+        Vue.component('my-child',{
+            template:'#child',
+            props:['func'],
+            data(){
+                return {
+                    str:'子组件的数据'
+                }
+            },
+            methods:{
+                demo(){
+                    this.$emit('func',this.str)
+                }
+            }
+        })
+        const vm = new Vue({
+           el:'#app',
+           data:{
+             title:"事件传递",
+             parent:'父级的数据：'
+           },
+           methods:{
+               parentData(str){
+                    this.parent = str;
+               }
+           }
+        });
+    </script>
+</body>
+
+</html>

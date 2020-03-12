@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue-2.6.10.js"></script>
+    <script src="../lib/vue-router.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <form action="" @submit.prevent="commit()">
+            用户：<input type="text" v-model="uname"><br>
+            密码：<input type="text" v-model="upass"><br>
+            <input type="submit" :disabled="!disabled">
+        </form>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                uname: '',
+                upass: '',
+            },
+            methods: {
+                commit() {
+                    alert('您的账号：'+this.uname+'您的密码是：'+this.upass)
+                }
+            },
+            computed: {
+                disabled:function(){
+                    let preg = /^[a-z]{1}[\w]{5,17}$/;
+                    return preg.test(this.uname) && this.upass.length > 5
+                }
+                
+            },
+
+        });
+    </script>
+</body>
+
+</html>
