@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../lib/vue-2.6.10.js"></script>
+    <script src="../lib/vue-router.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <router-link to="/login" tag="button">登录</router-link>
+        <router-link to="/admin" tag="button">首页</router-link>
+        <router-link to="/adminusers" tag="button">用户系统</router-link>
+        <router-link to="/adminpay" tag="button">财政系统</router-link>
+        <router-view></router-view>
+    </div>
+
+    <template id="login">
+        <div>
+            用户：<input type="text" v-model="uname"><br><br>
+            密码：<input type="text" v-model="upass"><br><br>
+            <input type="button" value="登录" @click="adminlogin">
+        </div>
+    </template>
+
+    <template id="admin">
+        <div>
+            <h3>首页</h3>
+        </div>
+    </template>
+
+    <template id="adminusers">
+        <div>
+            <h3>用户系统</h3>
+        </div>
+    </template>
+
+    <template id="adminpay">
+        <div>
+            <h3>财政系统</h3>
+        </div>
+    </template>
+
+    <script>
+        const login = {
+            template: '#login',
+            data() {
+                return {
+                    uname: '',
+                    upass: ''
+                }
+            },
+            methods: {
+                adminlogin() {
+                    let uname = this.uname;
+                    let upass = this.upass;
+                    if (uname == 'admin' && upass == 123) {
+                        localStorage.setItem('web1907_admin_loing', JSON.stringify({
+                            login: true
+                        }));
+
+                        this.$router.push('/admin');
+
+                    } else {
+                        alert('登录失败');
+                    }
+                }
+            }
+        }
+        const admin = {
+            template: '#admin'
+        }
+        const adminusers = {
+            template: '#adminusers'
+        }
+        const adminpay = {
+            template: '#adminpay'
+        }
+        const routes = [{
+                path: '/login',
+                component: login,
+                name: 'login'
+            },
+            {
+                path: '/admin',
+                component: admin,
+                name: 'admin'
+            },
+            {
+                path: '/adminusers',
+                component: adminusers,
+                name: "adminusers"
+            },
+            {
+                path: '/adminpay',
+                component: adminpay,
+                name: "adminpay"
+            }
+        ];
+        const router = new VueRouter({
+            routes
+        });
+        router.beforeEach((to, from, next) => {
+            if (to.name == 'login') {
+                next();
+            } else {
+                let adminlogin = JSON.parse(localStorage.getItem('web1907_admin_loing'));
+                if (adminlogin.login) {
+                    next();
+                } else {                    next('/login');
+                }
+            }
+        })
+        const vm = new Vue({
+            router,
+            el: '#app',
+            data: {
+
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>
