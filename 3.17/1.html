@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue-2.6.10.js"></script>
+    <script src="../lib/vue-router.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{ title }}</h1>
+        <router-link to="/home">个人</router-link>
+        <router-link to="/login">手机号</router-link>
+        <h4>home</h4>
+        <router-view name="home"></router-view>
+       
+        <h4>login</h4>
+        <router-view name="login"></router-view>
+
+        <h4>default</h4>
+        <router-view></router-view>
+
+
+
+    </div>
+
+    <template id="home">
+        <div>
+            <p>home.....</p>
+        </div>
+    </template>
+
+    <template id="login">
+        <div>
+            <p>login....</p>
+        </div>
+    </template>
+
+    <script>
+        const home = {
+            template: "#home"
+        }
+        const login = {
+            template: "#login"
+        }
+
+        const routes = [
+            {
+                path:'/',
+                components:{
+                    home,
+                    login
+                }
+            },
+            {
+                path:'/login',
+                component:login
+            },
+            {
+                path:'/home',
+                components:{
+                    home
+                }
+            }
+        ];
+        const router = new VueRouter({
+            routes
+        })
+        const vm = new Vue({
+            router,
+            el: '#app',
+            data: {
+                title: '视图命名'
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>
