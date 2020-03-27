@@ -1,0 +1,240 @@
+body,
+    div,
+    ul,
+    ol,
+    dt,
+    dd,
+    dl,
+    li,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    form,
+    input,
+    select,
+    textarea,
+    p,
+    img,
+    a,
+    span,
+    strong {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-size: 12px;
+      font-family: "宋体";
+      color: #000000;
+      background-color: #FFFFFF;
+    }
+
+    ul,
+    ol,
+    li {
+      list-style: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-size: 14px;
+    }
+
+    img,
+    input,
+    select,
+    textarea {
+      vertical-align: middle
+    }
+
+    img {
+      border: none;
+      margin: 0;
+    }
+
+    a {
+      color: #333333;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #003366;
+    }
+
+    .clear {
+      clear: both;
+      height: 0;
+      width: 0;
+      overflow: hidden;
+    }
+
+    input,
+    button {
+      outline: none;
+      border: none;
+    }
+
+    .box {
+      width: 100%;
+
+      border-top: 1px solid #f6f6f6;
+      border-bottom: 1px solid #f6f6f6;
+      margin-bottom: 10px;
+    }
+
+    .box .aa {
+      height: 59px;
+    }
+
+    .box .aa .bb {
+      height: 30px;
+      display: flex;
+      align-items: center;
+      font-size: 11px;
+    }
+
+    .box .aa .bb img {
+      width: 21px;
+      height: 21px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    .xia {
+      height: 29px;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 11px;
+      
+    }
+
+    .box .cc {
+      height: 128px;
+      margin-top: 11px;
+    }
+
+    .box .cc img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .box .dd {
+      font-size: 12px;
+      margin-left: 10px;
+      line-height: 15px;
+      margin-top: 12px;
+    }
+
+    .xing {
+      width: 100%;
+      height: 18px;
+      font-size: 10px;
+      display: flex;
+
+      line-height: 18px;
+    }
+
+    .ee {
+      margin-top: 8px;
+      margin-bottom: 8px;
+      margin-left: 7px;
+      margin-right: 7px;
+      line-height: 18px;
+    }
+
+    .ee img {
+      width: 13px;
+      height: 13px;
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+
+    .tou {
+      height: 127px;
+    }
+
+    .tou img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .bb {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      font-size: 11px;
+      margin-left: 10px;
+      color: #000000;
+    }
+   
+
+    .bb img {
+      width: 22px;
+      height: 22px;
+    }
+
+    .xia {
+      margin-left: 10px;
+    }
+
+    .m1 {
+      height: 34px;
+      /* margin-top: 9px; */
+      margin: 9px 10px 10px 10px;
+      position: relative;
+    }
+
+    .sf2 {
+      width: 100%;
+      height: 1px;
+      margin-top: 16px;
+      border-top: 1px solid #ccc;
+      margin: 10x 100px 10px 0px;
+    }
+
+    .sf2 img {
+      width: 34px;
+      height: 34px;
+      float: right;
+      margin-top: -17px;
+      margin-left: 10px;
+    }
+
+    .wz {
+      width: 95%;
+      font-size: 12px;
+      line-height: 16px;
+      margin-left: 10px;
+      margin-right: 20px;
+      margin-bottom: 22px;
+    }
+
+    .ff {
+      display: flex;
+      justify-content: space-around;
+      height: 50px;
+      background: #405f80;
+      color: #fff;
+    }
+
+    .ff div {
+      width: 70px;
+      height: 50px;
+      line-height: 50px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+    }
+
+    .ff div:nth-child(1) {
+      font-size: 16px;
+
+    }

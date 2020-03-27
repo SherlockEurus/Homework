@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="1.css">
+ 
+</head>
+
+<body>
+  <div id="box">
+    <!-- 第1个页面 -->
+    <div v-if='top'>
+      <div v-for="(v,i) in local_database" :key="i" class="box" @click="add(i)">
+        <div class="aa">
+          <div class="bb">
+            <!-- <img :src="v.headImgSrc"> -->
+            {{v.date}}
+          </div>
+          <div class="xia">{{v.title}}</div>
+        </div>
+        <div class="cc">
+          <!-- <img :src="v.imgSrc"> -->
+        </div>
+        <div class="dd">
+          {{v.content}}
+        </div>
+        <div class="ee">
+          <!-- <img :src="v.a"> -->
+          {{v.collection}}
+          <!-- <img :src="v.b"> -->
+          {{v.reading}}
+        </div>
+      </div>
+    </div>
+    <!-- 第2个页面 -->
+    <div v-else='top'>
+      <div class="ff">
+        <div @click="avv()">
+          <</div> <div>{{aff.title}}
+        </div>
+        <div></div>
+      </div>
+      <div class="tou">
+        <!-- <img :src="aff.imgSrc"> -->
+      </div>
+      <div>
+        <div class="bb">
+          <!-- <img :src="aff.headImgSrc"> -->
+          <text>{{aff.author}} {{aff.dateTime}}</text>
+        </div>
+        <div class="xia">{{aff.title}}</div>
+      </div>
+      <div class="m1">
+
+        <div class="sf2">
+
+          <!-- <img :src="aff.d">
+          <img :src="aff.c" class="gg"> -->
+        </div>
+      </div>
+      <div class="wz">
+        {{aff.detail}}
+      </div>
+    </div>
+
+  </div>
+  <script src="vue-2.6.10.js"></script>
+  <script src="posts-data.js"></script>
+  <script>
+    new Vue({
+      el: "#box",
+      data() {
+        return {
+          local_database,
+          aff: [],
+          top: true
+        }
+      },
+      methods: {
+        add(i) {
+          this.aff = this.local_database[i]
+          this.top = false
+          console.log(this.aff)
+        },
+        avv() {
+          this.top = true
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>
